@@ -1,0 +1,39 @@
+//second largest element in an array 
+//result = index of secong largest
+//largest =index of largeat element 
+//so the question is to find the second largest element of array ??
+
+#include <iostream>
+using namespace std;
+int secondlargest(int arr[],int n)
+{
+    int res=-1,largest=0;
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]>arr[largest])
+        {
+            res=largest;
+            largest=i;
+        }
+        else if(arr[i]!=arr[largest])
+        {
+            if(res==-1||arr[i]>arr[res])
+                res=i;
+        }
+   
+    }
+    return res;
+   
+}
+int main()
+{
+    int arr[]={10,39,29,66,48};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int res=secondlargest(arr,n);
+    if(res!=-1)
+        cout<<"second largest element is "<<arr[res]<<endl;
+    else
+        cout<<"no second largest element ";
+    return 0;
+    
+}
